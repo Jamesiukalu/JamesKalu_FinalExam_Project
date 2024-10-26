@@ -34,8 +34,8 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 
 
 public class JamesKalu_FinalExam_Project {
-//	static Logger logger = Logger.getLogger(LoggerFile.class);
-	public static final Logger logger = Logger.getLogger("myClassName");
+	static Logger logger = Logger.getLogger(JamesKalu_FinalExam_Project.class);
+//	public static final Logger logger = Logger.getLogger("myClassName");
 	
 	public static ExtentSparkReporter sparkReporter; //This class is responsible for generating an HTML report with a user-friendly interface. The SparkReporter specifically generates a spark-themed HTML report.
 	public static ExtentReports extent;
@@ -109,6 +109,8 @@ public class JamesKalu_FinalExam_Project {
                           // Wait for the link to be clickable
                    //       wait.until(ExpectedConditions.elementToBeClickable(nameLink));
                           Thread.sleep(1000); // Sleep for 1 second
+
+                		  logger.info("This test started successful");
                           test.addScreenCaptureFromPath(captureScreenshot(driver));
                           nameLink.click(); // Click on the name link
                   
@@ -134,6 +136,8 @@ public class JamesKalu_FinalExam_Project {
                     }
                     // Close the modal
                     WebElement closeButton = driver.findElement(By.xpath("//button[@title='Fermer']"));
+
+          		  logger.info("This test is successful");
                     test.addScreenCaptureFromPath(captureScreenshot(driver));
                     closeButton.click();
                //     wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("BILLETS_heading"))); // Wait for the main page to reload
@@ -151,7 +155,6 @@ public class JamesKalu_FinalExam_Project {
        	 outputStream.close();  // Close outputStream
          workbook.close();
          
-		  logger.info("This test is successful");
  
       } catch (IOException e) {
           e.printStackTrace();
@@ -160,15 +163,14 @@ public class JamesKalu_FinalExam_Project {
     }
   	  
 
-
     @BeforeTest
     public void beforeTest() {
 		initializer();
+		PropertyConfigurator.configure("src\\test\\resources\\log4j.properties");
         driver = new ChromeDriver();
         driver.get("https://www.finmun.finances.gouv.qc.ca/finmun/f?p=100:3000::RESLT");
     //    driver.manage().window().maximize();
 	//	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		  logger.info("This test started successful");
     }
 
     @AfterTest

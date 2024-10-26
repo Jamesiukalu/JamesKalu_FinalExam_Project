@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-10-25T22:26:14 EDT" name="Default suite" finished-at="2024-10-25T22:30:41 EDT" duration-ms="266704">
+  <suite started-at="2024-10-25T23:45:20 EDT" name="Default suite" finished-at="2024-10-25T23:48:33 EDT" duration-ms="192690">
     <groups>
     </groups>
-    <test started-at="2024-10-25T22:26:14 EDT" name="Default test" finished-at="2024-10-25T22:30:41 EDT" duration-ms="266704">
+    <test started-at="2024-10-25T23:45:20 EDT" name="Default test" finished-at="2024-10-25T23:48:33 EDT" duration-ms="192690">
       <class name="BusyQA.JamesKalu_FinalExam_Project.JamesKalu_FinalExam_Project">
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:BusyQA.JamesKalu_FinalExam_Project.JamesKalu_FinalExam_Project@1165b38]" started-at="2024-10-25T22:26:14 EDT" name="beforeTest" finished-at="2024-10-25T22:26:21 EDT" duration-ms="6647" status="PASS">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:BusyQA.JamesKalu_FinalExam_Project.JamesKalu_FinalExam_Project@10d68fcd]" started-at="2024-10-25T23:45:20 EDT" name="beforeTest" finished-at="2024-10-25T23:45:26 EDT" duration-ms="5782" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method signature="newTest()[pri:0, instance:BusyQA.JamesKalu_FinalExam_Project.JamesKalu_FinalExam_Project@1165b38]" started-at="2024-10-25T22:26:21 EDT" name="newTest" finished-at="2024-10-25T22:30:39 EDT" duration-ms="258585" status="PASS">
+        <test-method signature="newTest()[pri:0, instance:BusyQA.JamesKalu_FinalExam_Project.JamesKalu_FinalExam_Project@10d68fcd]" started-at="2024-10-25T23:45:26 EDT" name="newTest" finished-at="2024-10-25T23:48:32 EDT" duration-ms="185758" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- newTest -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:BusyQA.JamesKalu_FinalExam_Project.JamesKalu_FinalExam_Project@1165b38]" started-at="2024-10-25T22:30:39 EDT" name="afterTest" finished-at="2024-10-25T22:30:41 EDT" duration-ms="1387" status="PASS">
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:BusyQA.JamesKalu_FinalExam_Project.JamesKalu_FinalExam_Project@10d68fcd]" started-at="2024-10-25T23:48:32 EDT" name="afterTest" finished-at="2024-10-25T23:48:33 EDT" duration-ms="1069" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
