@@ -15,7 +15,6 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -35,7 +34,6 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class JamesKalu_FinalExam_Project {
 	static Logger logger = Logger.getLogger(JamesKalu_FinalExam_Project.class);
-//	public static final Logger logger = Logger.getLogger("myClassName");
 	
 	public static ExtentSparkReporter sparkReporter; //This class is responsible for generating an HTML report with a user-friendly interface. The SparkReporter specifically generates a spark-themed HTML report.
 	public static ExtentReports extent;
@@ -84,11 +82,7 @@ public class JamesKalu_FinalExam_Project {
    
           Thread.sleep(1000);
 
-          
-          // Wait for the page to load and get the tables
-//          WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-//          wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("BILLETS_heading")));
-          
+         
        // Locate the table section
           int count = 0;
           while (count < 5) { //process only the first 5 tables
@@ -106,22 +100,21 @@ public class JamesKalu_FinalExam_Project {
                       // Check if the nameLink is displayed and is an anchor element
                       if (nameLink.isDisplayed() && nameLink.getTagName().equals("a")) {
                           String name = nameLink.getText(); // Get the text of the link
-                          // Wait for the link to be clickable
-                   //       wait.until(ExpectedConditions.elementToBeClickable(nameLink));
-                          Thread.sleep(1000); // Sleep for 1 second
 
-                		  logger.info("This test started successful");
+                          Thread.sleep(1000); 
+
+                		  logger.info("This test started successfully");
                           test.addScreenCaptureFromPath(captureScreenshot(driver));
                           nameLink.click(); // Click on the name link
                   
                           Thread.sleep(2000); 
-        
-                //      wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//table[@width='500' and @border='1']"))); // Wait for small table
 
                       // Copy the small table from the new page
-                      List<WebElement> smallTableRows = driver.findElements(By.xpath(".//tbody/tr"));
-
-                      // Create a new Excel sheet with the same name as the link
+                       // Switch to iframe
+                          driver.switchTo().frame(driver.findElement(By.tagName("iframe")));
+                          // Now apply your XPath
+                          List<WebElement> smallTableRows = driver.findElements(By.xpath("//*[@id=\"R1740668184739222315\"]/div[2]/div[2]/table[2]/tbody/tr"));
+                          // Create a new Excel sheet with the same name as the link
                     XSSFSheet sheet = workbook.createSheet(name);
                  // Fill the Excel sheet with data from the small table
                     int rowIndex = 0;
@@ -134,13 +127,16 @@ public class JamesKalu_FinalExam_Project {
                             cell.setCellValue(cells.get(i).getText());
                         }
                     }
+                    // Don't forget to switch back to the default content after interacting with the iframe
+                    driver.switchTo().defaultContent();
                     // Close the modal
                     WebElement closeButton = driver.findElement(By.xpath("//button[@title='Fermer']"));
 
           		  logger.info("This test is successful");
                     test.addScreenCaptureFromPath(captureScreenshot(driver));
                     closeButton.click();
-               //     wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("BILLETS_heading"))); // Wait for the main page to reload
+
+                    
                     Thread.sleep(1000); 
                     
                     // Increment the count of processed tables
@@ -169,8 +165,7 @@ public class JamesKalu_FinalExam_Project {
 		PropertyConfigurator.configure("src\\test\\resources\\log4j.properties");
         driver = new ChromeDriver();
         driver.get("https://www.finmun.finances.gouv.qc.ca/finmun/f?p=100:3000::RESLT");
-    //    driver.manage().window().maximize();
-	//	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
     }
 
     @AfterTest
